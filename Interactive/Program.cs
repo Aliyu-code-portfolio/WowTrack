@@ -46,22 +46,7 @@ namespace Interactive
 
         static async Task SendEmail()
         {
-            //var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-            //read data from a file stored from C drive/windows
-            var info = GetModelAndClient();
-            string clientName = info[0];
-            var model = info[1];
-            int minutes = 234;
-            var apiKey = "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";
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("aliyu.abdullahi@equipmenthall.com", "Aliyu Abdullahi");
-            var subject = $"WowBudd model {model} has been used recently";
-            var to = new EmailAddress("harryalex9821@gmail.com", "Harry Alex");
-            var plainTextContent = $"Wowbudd with model number: {model} was used for {minutes} minutes by {clientName}. This is an automated mail to alert the company of wowbudd usage, Please do not reply to this email ";
-            var htmlContent = $"<strong>Wowbudd with model number: <b>{model}</b> was used for <b>{minutes}</b> minutes by <b>{clientName}</b>. This is an automated mail to alert the company of wowbudd usage, Please do not reply to this email  </strong>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
-            //Setup database next
+           
         }
         static string[] GetModelAndClient()
         {
